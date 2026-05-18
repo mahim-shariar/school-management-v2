@@ -30,6 +30,9 @@ const achievementRoutes = require("./routes/achievement.routes");
 
 const app = express();
 
+// Trust the first proxy (Vercel) so req.ip and rate limiting use the real client IP.
+app.set("trust proxy", 1);
+
 // ── Security headers ──────────────────────────────────────────────────────────
 app.use(helmet());
 
